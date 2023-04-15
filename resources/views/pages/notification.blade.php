@@ -8,7 +8,7 @@
             <h6 class="hidden-sm-down">Shrink page width to see sidebar collapse</h6>
 <div class="container">
     <div class="row">
-        <div class="col-md-4 col-xl-3">
+        <div class="col-md-6 col-xl-6">
             <div class="card bg-c-blue order-card">
                 <div class="card-block">
                     <h6 class="m-b-20">Orders Received</h6>
@@ -18,7 +18,7 @@
             </div>
         </div>
 
-        <div class="col-md-4 col-xl-3">
+        <div class="col-md-6 col-xl-6">
             <div class="card bg-c-green order-card">
                 <div class="card-block">
                     <h6 class="m-b-20">Orders Received</h6>
@@ -28,25 +28,7 @@
             </div>
         </div>
 
-        <div class="col-md-4 col-xl-3">
-            <div class="card bg-c-yellow order-card">
-                <div class="card-block">
-                    <h6 class="m-b-20">Orders Received</h6>
-                    <h2 class="text-right"><i class="fa fa-refresh f-left"></i><span>486</span></h2>
-                    <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
-                </div>
-            </div>
-        </div>
 
-        <div class="col-md-4 col-xl-3">
-            <div class="card bg-c-pink order-card">
-                <div class="card-block">
-                    <h6 class="m-b-20">Orders Received</h6>
-                    <h2 class="text-right"><i class="fa fa-credit-card f-left"></i><span>486</span></h2>
-                    <p class="m-b-0">Completed Orders<span class="f-right">351</span></p>
-                </div>
-            </div>
-        </div>
 	</div>
     <div class="row">
         <div class="col-md-6 col-xl-6">
@@ -72,7 +54,7 @@
         </div>
     </div>
 </div>
-  <section class="container mt-4">
+  <!-- <section class="container mt-4">
       <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12 col-sm-6 col-md-6">
@@ -93,7 +75,7 @@
             </div>
         </div>
       </div>
-  </section>
+  </section> -->
 @endsection
 
 
@@ -154,17 +136,9 @@
                         success:function(data) {
                             console.log(data);
                             if(data.status) {
-                                 $('#notifDiv').fadeIn();
-                                // $('#notifDiv').css('background', 'green');
-                                $.toast({
-                                    heading: 'Success',
-                                    text: data.message,
-                                    icon: 'success',
-                                    position: 'top-right',
-                                    stack: false
-
-                                })
-                                // $('#notifDiv').text(data.message);
+                                $('#notifDiv').fadeIn();
+                                $('#notifDiv').css('background', 'green');
+                                $('#notifDiv').text(data.message);
                                 setTimeout(() => {
                                     $('#notifDiv').fadeOut();
                                 }, 3000);

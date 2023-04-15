@@ -5,9 +5,9 @@
       <div class="container">
           <div class="row ">
               <div class="col-md-6 mx-auto">
-                  <div class="card">
+                  <div class="card mt-md-5 p-5">
                       <div class="card-header bg-dark text-white">
-                            <h4 class="text-center">Account Login</h4>
+                            <h4 class="text-center">Admin Login</h4>
                       </div>
                       <div class="card-body">
                           <form >
@@ -20,8 +20,8 @@
                                 <label for="password">Password</label>
                                 <input type="password" id="password" name="password" class="form-control">
                             </div>
-                  
-                            <button type="submit" class="btn btn-dark btn-block" id="loginBtn">LOGIN</button>
+                            <div class="form-group text-center">
+                            <button type="submit" class="btn btn-dark font-weight-bold pr-5 pl-5" id="loginBtn">LOGIN</button></div>
                           </form>
                       </div>
                   </div>
@@ -37,17 +37,17 @@
 <script>
     $(document).ready(function() {
         $("#loginBtn").click(function(e) {
-  
+
             $.ajaxSetup({
                 headers: {
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                 }
             });
-    
+
             e.preventDefault();
             var email     = $("#email").val();
             var password  = $("#password").val();
-    
+
             $.ajax({
                 url: 'user_login',
                 type: 'POST',
@@ -73,20 +73,18 @@
                         $('#notifDiv').fadeOut();
                        }, 3000);
                     }
-                    } 
+                    }
                      else {
                        $('#notifDiv').fadeIn();
                        $('#notifDiv').css('background', 'red');
-                       $('#notifDiv').text('An error occured. Please try later');
+                       $('#notifDiv').text('You have entered wrong credential!');
                        setTimeout(() => {
                         $('#notifDiv').fadeOut();
                        }, 3000);
                     }
                 }
             });
-          });  
-        }); 
+          });
+        });
 </script>
 @endpush
-
-
